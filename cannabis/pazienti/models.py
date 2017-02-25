@@ -45,4 +45,5 @@ class Paziente(models.Model):
         verbose_name_plural = _('Pazienti')
 
     def __str__(self):
-        return '%s %s'.format(self.nome, self.cognome)
+        if self.nome and self.cognome:
+        	return self.pk
