@@ -1,0 +1,31 @@
+#header {
+	background: green;
+}
+
+.module caption {
+	background: green;
+}
+
+div.breadcrumbs {
+	background: limegreen;
+}
+
+.module h2 {
+	background: yellowgreen;
+}
+
+.submit-row input {
+	background: yellowgreen;
+}
+
+input[type=submit]:hover {
+	background: green;
+}
+
+input[type=submit].default {
+	background: limegreen;
+}
+
+input[type=submit].default:hover {
+    background: green;
+}
