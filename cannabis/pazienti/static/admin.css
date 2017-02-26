@@ -29,3 +29,26 @@ input[type=submit].default {
 input[type=submit].default:hover {
     background: green;
 }
+
+.object-tools a:link, .object-tools a:visited {
+	background: limegreen;
+}
+
+.object-tools a.addlink {
+    background-image: url(../../static/admin/img/tooltag-add.svg);
+    background-repeat: no-repeat;
+    background-position: 93% center;
+}
+
+.object-tools a.addlink:hover {
+	background: green;
+	background-image: url(../../static/admin/img/tooltag-add.svg);
+    background-repeat: no-repeat;
+    background-position: 93% center;
+}
+
+.object-tools a.import_link:hover,
+.object-tools a.export_link:hover,
+.object-tools a.historylink:hover {
+	background: green;
+}

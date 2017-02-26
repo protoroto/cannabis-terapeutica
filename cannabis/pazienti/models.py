@@ -134,11 +134,19 @@ class Paziente(models.Model):
     class Meta:
         verbose_name = _('Paziente')
         verbose_name_plural = _('Pazienti')
+        ordering = ('num_paziente',)
+
 
     def __str__(self):
         if self.nome and self.cognome:
         	return '%s %s' % (self.nome, self.cognome)
         return 'Paziente anonimo'
+
+    @property
+    def nome_completo(self):
+    	if self.nome and self.cognome:
+    		return '%s %s' % (self.nome, self.cognome)
+    	return 'Paziente anonimo'
 
 
 class BPIForm(models.Model):
