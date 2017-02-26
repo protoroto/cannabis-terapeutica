@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'cannabis/templates',
+            os.path.join(BASE_DIR, 'cannabis/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
