@@ -22,6 +22,7 @@ class EventiAvversiInline(admin.StackedInline):
     	('tachicardia', 'ipotensione_post', 'cefalea', 'sonnolenza', 'iper_congiuntivale'),
     	('tosse', 'astenia', 'disforia', 'crisi_ansia', 'concentrazione'), 
     	('fauci', 'sonnolenza_sedazione', 'confusione', 'amotivazione', 'delirio'),
+    	('altro')
     )
     extra = 0
 
@@ -58,6 +59,7 @@ class PazienteAdmin(admin.ModelAdmin):
             	('modalita_somministrazione'),
             	('utilizzo_cannabis', 'tempo_prelievo'),
             	('cannabis_ricreazionale', 'pregresso_utilizzo_ricreazionale', 'uso_stupefacenti'),
+            	('note')
             )
         }),
     )

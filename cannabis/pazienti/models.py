@@ -125,6 +125,10 @@ class Paziente(models.Model):
 		verbose_name=_(u"Uso di sostanze stupefacenti"), 
 		null=True, blank=True
 	)
+    note = models.TextField(
+		verbose_name=_(u"Note"), 
+    	null=True, blank=True
+	)
 
 
     class Meta:
@@ -288,6 +292,10 @@ class EventiAvversi(models.Model):
 	)
 	delirio = models.BooleanField(
 		verbose_name=_(u"Crisi psicotica acuta / delirio"), default=False
+	)
+	altro = models.TextField(
+	    verbose_name=_(u"Altro"), 
+        null=True, blank=True
 	)
 
     
