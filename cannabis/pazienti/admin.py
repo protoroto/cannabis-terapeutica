@@ -61,8 +61,9 @@ class PazienteAdmin(ImportExportModelAdmin):
 	fieldsets = (
 		('Dati paziente', {
             'fields': (('num_paziente', 'num_cartella'), ('nome','cognome'), 
-            	('sesso', 'data_nascita', 'eta'),
-            	('lavoro', 'titolo_studio'),
+            	('sesso', 'data_nascita', 'luogo_nascita'),
+            	('eta', 'lavoro'), 
+            	('titolo_studio'),
             	('patologia'),
             	('descrizione_patologica', 'eta_insorgenza'),
             	('altre_patologie', 'trattamenti')
@@ -72,6 +73,9 @@ class PazienteAdmin(ImportExportModelAdmin):
             'fields': (('posologia', 'num_somministrazioni', 'data_trattamento'), 
             	('modalita_somministrazione'),
             	('utilizzo_cannabis', 'tempo_prelievo'),
+            	('conc_thc_sangue', 'conc_thc_dbs'),
+            	('conc_11_oh_thc_sangue', 'conc_11_oh_thc_dbs'),
+            	('conc_cbd_sangue', 'conc_cbd_dbs'),
             	('cannabis_ricreazionale', 'pregresso_utilizzo_ricreazionale', 
             		'uso_stupefacenti'),
             	('note')

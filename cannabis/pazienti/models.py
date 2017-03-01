@@ -60,6 +60,10 @@ class Paziente(models.Model):
     	verbose_name=_(u"Età"), 
     	max_length=2, blank=True, null=True
     )
+    luogo_nascita = models.CharField(
+    	verbose_name=_(u"Luogo di nascita"), 
+    	max_length=100, blank=True, null=True
+    )
     lavoro = models.CharField(
     	verbose_name=_(u"Lavoro"), 
     	max_length=100, blank=True, null=True
@@ -111,6 +115,30 @@ class Paziente(models.Model):
     tempo_prelievo = models.CharField(
 		verbose_name=_(u"Tempo trascorso tra l'assunzione della cannabis e il \
 			prelievo ematico (minuti)"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_thc_sangue = models.CharField(
+		verbose_name=_(u"Concentrazione THC - Sangue intero"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_thc_dbs = models.CharField(
+		verbose_name=_(u"Concentrazione THC - DBS"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_11_oh_thc_sangue = models.CharField(
+		verbose_name=_(u"Concentrazione 11-OH-THC - Sangue intero"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_11_oh_thc_dbs = models.CharField(
+		verbose_name=_(u"Concentrazione 11-OH-THC - DBS"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_cbd_sangue = models.CharField(
+		verbose_name=_(u"Concentrazione CBD - Sangue intero"), 
+		max_length=100, blank=True, null=True
+	)
+    conc_cbd_dbs = models.CharField(
+		verbose_name=_(u"Concentrazione CBD - DBS"), 
 		max_length=100, blank=True, null=True
 	)
     cannabis_ricreazionale = models.NullBooleanField(
