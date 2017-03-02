@@ -32,12 +32,20 @@ ul {
     background: #B3E2CE;
 }
 
-.dati-paziente h3,
-.terapia-cannabis h3 {
+.tab-content .dati-paziente h3,
+.tab-content .terapia-cannabis h3,
+.tab-content .bpi h3 {
     margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .terapia-cannabis {
+    margin: 20px;
+    padding: 40px;
+    background: #B3E2CE;
+}
+
+.bpi {
     margin: 20px;
     padding: 40px;
     background: #B3E2CE;
