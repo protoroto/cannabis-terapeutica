@@ -18,6 +18,18 @@ div.breadcrumbs {
 	background: yellowgreen;
 }
 
+.aligned .form-row label {
+    width: 120px;
+    line-height: 1.7;
+}
+
+.aligned .field-conc_thc_sangue.form-row label,
+.aligned .field-conc_cbd_sangue.form-row label,
+.aligned .field-conc_11_oh_thc_sangue.form-row label,
+.aligned .field-cannabis_ricreazionale.form-row label {
+    width: 270px;
+}
+
 input[type=submit]:hover {
 	background: green;
 }

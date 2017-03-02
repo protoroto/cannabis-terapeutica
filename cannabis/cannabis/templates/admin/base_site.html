@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">Studio cannabis terapeutica - Orsini Isabella</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Studio cannabis terapeutica{% if request.user.is_authenticated %} - {{ request.user.get_full_name }}{% endif %}</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
