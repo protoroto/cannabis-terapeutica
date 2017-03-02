@@ -1,11 +1,60 @@
 body {
     font-family: 'Roboto Condensed', sans-serif;
+    background: #efefef;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', serif;
 }
 
+h1.title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #6D9E71;
+    color: white;
+}
+
+p {
+    font-size: 16px;
+}
+
 ul {
     list-style: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.dati-paziente {
+    margin: 20px;
+    padding: 40px;
+    background: #B3E2CE;
+}
+
+.dati-paziente h3,
+.terapia-cannabis h3 {
+    margin-top: 0;
+}
+
+.terapia-cannabis {
+    margin: 20px;
+    padding: 40px;
+    background: #B3E2CE;
+}
+
+.tab-content {
+    background: white;
+}
+
+.tab-pane {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-pane h2 {
+    margin-top: 0px;
+    padding-left: 40px;
+    padding-top: 20px;
 }

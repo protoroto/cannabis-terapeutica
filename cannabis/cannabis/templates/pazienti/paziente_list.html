@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="col-xs-12">
-    <h1 class="text-center">Lista pazienti</h1>
+    <h1 class="title text-center">Lista pazienti - Studio cannabis terapeutica</h1>
 </div>
 <div class="col-xs-12 pazienti-list__container">
     <ul class="nav nav-tabs pazienti-list">
@@ -16,15 +16,25 @@
         {% for paziente in object_list %}
             <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
                 <h2>{{ paziente }}</h2>
-                <p>Numero paziente: {{ paziente.num_paziente }}</p>
-                <p>Numero cartella: {{ paziente.num_cartella }}</p>
-                <p>Sesso: {{ paziente.get_sesso_display }}</p>
-                <p>Data di nascita: {{ paziente.data_nascita }}</p>
-                <p>Età: {{ paziente.eta }}</p>
-                <p>Luogo di nascita: {{ paziente.luogo_nascita }}</p>
-                <p>Lavoro: {{ paziente.lavoro }}</p>
-                <p>Titolo di studio: {{ paziente.get_titolo_studio_display }}</p>
-                <p>Patologia: {{ paziente.get_patologia_display }}</p>
+                <div class="dati-paziente">
+                    <h3>Dati paziente</h3>
+                    <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
+                    <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
+                    <p><span class="bold">Sesso:</span> {{ paziente.get_sesso_display }}</p>
+                    <p><span class="bold">Data di nascita:</span> {{ paziente.data_nascita }}</p>
+                    <p><span class="bold">Età:</span> {{ paziente.eta }}</p>
+                    <p><span class="bold">Luogo di nascita:</span> {{ paziente.luogo_nascita }}</p>
+                    <p><span class="bold">Lavoro:</span> {{ paziente.lavoro }}</p>
+                    <p><span class="bold">Titolo di studio:</span> {{ paziente.get_titolo_studio_display }}</p>
+                    <p><span class="bold">Patologia:</span> {{ paziente.get_patologia_display }}</p>
+                    <p><span class="bold">Descrizione patologia:</span> {{ paziente.descrizione_patologica }}</p>
+                    <p><span class="bold">Età anagrafica all'insorgenza della patologia dolorosa:</span> {{ paziente.eta_insorgenza }}</p>
+                    <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
+                    <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
+                </div>
+                <div class="terapia-cannabis">
+                    <h3>Terapia con cannabis</h3>
+                </div>
             </div>
         {% endfor %}
     </div>
