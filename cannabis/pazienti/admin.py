@@ -72,7 +72,7 @@ class PazienteAdmin(ImportExportModelAdmin):
         ('Terapia con cannabis', {
             'fields': (('posologia', 'num_somministrazioni', 'data_trattamento'), 
             	('modalita_somministrazione'),
-            	('utilizzo_cannabis', 'tempo_prelievo'),
+            	('utilizzo_cannabis', 'tempo_prelievo', 'modalita_ultima_assunzione'),
             	('conc_thc_sangue', 'conc_thc_dbs'),
             	('conc_11_oh_thc_sangue', 'conc_11_oh_thc_dbs'),
             	('conc_cbd_sangue', 'conc_cbd_dbs'),

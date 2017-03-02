@@ -117,6 +117,10 @@ class Paziente(models.Model):
 			prelievo ematico (minuti)"), 
 		max_length=100, blank=True, null=True
 	)
+    modalita_ultima_assunzione = models.CharField(
+		verbose_name=_(u"Modalità ultima assunzione"), 
+		max_length=100, blank=True, null=True
+	)
     conc_thc_sangue = models.CharField(
 		verbose_name=_(u"Concentrazione THC - Sangue intero"), 
 		max_length=100, blank=True, null=True
