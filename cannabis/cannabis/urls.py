@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from pazienti.views import PazienteListView
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', PazienteListView.as_view(), name='paziente-list'),
 ]

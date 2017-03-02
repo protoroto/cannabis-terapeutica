@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-xs-12">
+    <h1 class="text-center">Lista pazienti</h1>
+</div>
+<div class="col-xs-12 pazienti-list__container">
+    <ul class="nav nav-tabs pazienti-list">
+        {% for paziente in object_list %}
+            <li class="{% if forloop.first %}active{% endif %}">
+                <a href="#{{ paziente.num_cartella }}" data-toggle="tab">{{ paziente }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        {% for paziente in object_list %}
+            <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
+                <h2>{{ paziente }}</h2>
+                <p>Numero paziente: {{ paziente.num_paziente }}</p>
+                <p>Numero cartella: {{ paziente.num_cartella }}</p>
+                <p>Sesso: {{ paziente.get_sesso_display }}</p>
+                <p>Data di nascita: {{ paziente.data_nascita }}</p>
+                <p>Età: {{ paziente.eta }}</p>
+                <p>Luogo di nascita: {{ paziente.luogo_nascita }}</p>
+                <p>Lavoro: {{ paziente.lavoro }}</p>
+                <p>Titolo di studio: {{ paziente.get_titolo_studio_display }}</p>
+                <p>Patologia: {{ paziente.get_patologia_display }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
