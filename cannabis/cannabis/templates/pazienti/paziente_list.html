@@ -259,8 +259,8 @@
                         </div>
                     </div>
                     {% endif %}
-                    {% if paziente.eventi_paziente.all %}
                     <div class="col-6">
+                        {% if paziente.eventi_paziente.all %}
                         <div class="eventi-avversi">
                             <div class="eventi-avversi--wrapper">
                                 {% for evento_avverso in paziente.eventi_paziente.all %}
@@ -273,23 +273,21 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>
-                    {% endif %}
-                    {% if paziente.decotto_paziente.all %}
-                    <div class="col-6">
-                        <div class="modalita-decotto">
-                            <div class="modalita-decotto--wrapper">
-                                {% for decotto in paziente.decotto_paziente.all %}
-                                    <h3>Modalità decotto</h3>
-                                    <p><span class="bold">Quantità acqua (ml):</span> {{ decotto.quantita_acqua }}</p>
-                                    <p><span class="bold">Sostanza grassa utilizzata (butto,latte, panna) e quantità (ml):</span> {{ decotto.sostanza_grassa }}</p>
-                                    <p><span class="bold">Tempo intercorso tra la preparazione del decotto (min):</span> {{ decotto.tempo_impiegato }}</p>
-                                    <p><span class="bold">Tempo intercorso tra la preparazione e l'assunzione (min):</span> {{ decotto.tempo_assunzione }}</p>
-                                {% endfor %}
+                        {% endif %}
+                        {% if paziente.decotto_paziente.all %}
+                            <div class="modalita-decotto">
+                                <div class="modalita-decotto--wrapper">
+                                    {% for decotto in paziente.decotto_paziente.all %}
+                                        <h3>Modalità decotto</h3>
+                                        <p><span class="bold">Quantità acqua (ml):</span> {{ decotto.quantita_acqua }}</p>
+                                        <p><span class="bold">Sostanza grassa utilizzata (butto,latte, panna) e quantità (ml):</span> {{ decotto.sostanza_grassa }}</p>
+                                        <p><span class="bold">Tempo intercorso tra la preparazione del decotto (min):</span> {{ decotto.tempo_impiegato }}</p>
+                                        <p><span class="bold">Tempo intercorso tra la preparazione e l'assunzione (min):</span> {{ decotto.tempo_assunzione }}</p>
+                                    {% endfor %}
+                                </div>
                             </div>
-                        </div>
+                        {%endif %}
                     </div>
-                    {%endif %}
                 </div>
             </div>
         {% endfor %}
