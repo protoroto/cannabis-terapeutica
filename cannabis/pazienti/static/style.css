@@ -22,6 +22,26 @@ ul {
     list-style: none;
 }
 
+.bpi td, 
+.bpi th {
+    padding: 5px;
+}
+
+.bpi-t0,
+.bpi-t1 {
+    width: 20%;
+    text-align: center;
+}
+
+.bpi-tipo {
+    width: 25%;
+}
+
+.bpi-trend {
+    width: 25%;
+    text-align: center;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -35,28 +55,25 @@ ul {
     margin-bottom: 30px;
 }
 
-.terapia-cannabis {
-    padding: 40px;
-}
-
+.dati-paziente,
+.eventi-avversi,
+.modalita-decotto,
+.terapia-cannabis,
 .bpi {
-    padding: 40px;
+    padding: 20px;
 }
 
-.dati-paziente {
-    padding: 40px;
-}
-
-.eventi-avversi {
-    padding: 40px;
+.dati-paziente--wrapper,
+.eventi-avversi--wrapper,
+.modalita-decotto--wrapper,
+.terapia-cannabis--wrapper,
+.bpi--wrapper {
+    padding: 20px;
+    border: 1px solid #ddd;
 }
 
 .eventi-avversi .fa {
     margin-left: 5px;
-}
-
-.modalita-decotto {
-    padding: 40px;
 }
 
 .tab-content {

@@ -22,90 +22,271 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="dati-paziente">
-                            <h3>Dati paziente</h3>
-                            <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
-                            <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
-                            <p><span class="bold">Sesso:</span> {{ paziente.get_sesso_display }}</p>
-                            <p><span class="bold">Data di nascita:</span> {{ paziente.data_nascita }}</p>
-                            <p><span class="bold">Età:</span> {{ paziente.eta }}</p>
-                            <p><span class="bold">Luogo di nascita:</span> {{ paziente.luogo_nascita }}</p>
-                            <p><span class="bold">Lavoro:</span> {{ paziente.lavoro }}</p>
-                            <p><span class="bold">Titolo di studio:</span> {{ paziente.get_titolo_studio_display }}</p>
-                            <p><span class="bold">Patologia:</span> {{ paziente.get_patologia_display }}</p>
-                            <p><span class="bold">Descrizione patologia:</span> {{ paziente.descrizione_patologica }}</p>
-                            <p><span class="bold">Età anagrafica all'insorgenza della patologia dolorosa:</span> {{ paziente.eta_insorgenza }}</p>
-                            <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
-                            <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
+                            <div class="dati-paziente--wrapper">
+                                <h3>Dati paziente</h3>
+                                <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
+                                <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
+                                <p><span class="bold">Sesso:</span> {{ paziente.get_sesso_display }}</p>
+                                <p><span class="bold">Data di nascita:</span> {{ paziente.data_nascita }}</p>
+                                <p><span class="bold">Età:</span> {{ paziente.eta }}</p>
+                                <p><span class="bold">Luogo di nascita:</span> {{ paziente.luogo_nascita }}</p>
+                                <p><span class="bold">Lavoro:</span> {{ paziente.lavoro }}</p>
+                                <p><span class="bold">Titolo di studio:</span> {{ paziente.get_titolo_studio_display }}</p>
+                                <p><span class="bold">Patologia:</span> {{ paziente.get_patologia_display }}</p>
+                                <p><span class="bold">Descrizione patologia:</span> {{ paziente.descrizione_patologica }}</p>
+                                <p><span class="bold">Età anagrafica all'insorgenza della patologia dolorosa:</span> {{ paziente.eta_insorgenza }}</p>
+                                <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
+                                <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="terapia-cannabis">
-                            <h3>Terapia con cannabis</h3>
-                            <p><span class="bold">Posologia (mg/die):</span> {{ paziente.posologia }}</p>
-                            <p><span class="bold">Numero di somministrazioni/die:</span> {{ paziente.num_somministrazioni }}</p>
-                            <p><span class="bold">Data di inizio trattamento:</span> {{ paziente.data_trattamento }}</p>
-                            <p><span class="bold">Modalità di somministrazione:</span> {{ paziente.get_modalita_somministrazione_display }}</p>
-                            <p><span class="bold">Utilizzo cannabis prescritta per terapia orale anche con altre modalità di somministrazione (es. per smoking):</span> {{ paziente.utilizzo_cannabis }}</p>
-                            <p><span class="bold">Tempo trascorso tra l'assunzione della cannabis e il prelievo ematico (minuti):</span> {{ paziente.tempo_prelievo }}</p>
-                            <p><span class="bold">Modalità ultima assunzione:</span> {{ paziente.modalita_ultima_assunzione }}</p>
-                            <p><span class="bold">Concentrazione THC - Sangue intero:</span> {{ paziente.conc_thc_sangue }}</p>
-                            <p><span class="bold">Concentrazione THC - DBS:</span> {{ paziente.conc_thc_dbs }}</p>
-                            <p><span class="bold">Concentrazione 11-OH-THC - Sangue intero:</span> {{ paziente.conc_11_oh_thc_sangue }}</p>
-                            <p><span class="bold">Concentrazione 11-OH-THC - DBS:</span> {{ paziente.conc_11_oh_thc_dbs }}</p>
-                            <p><span class="bold">Concentrazione CBD - Sangue intero:</span> {{ paziente.conc_cbd_sangue }}</p>
-                            <p><span class="bold">Concentrazione CBD - DBS:</span> {{ paziente.conc_cbd_dbs }}</p>
-                            <p><span class="bold">Attuale utilizzo di cannabis ricreazionale:</span> {{ paziente.cannabis_ricreazionale }}</p>
-                            <p><span class="bold">Pregresso utilizzo di cannabis ricreazonale:</span> {{ paziente.pregresso_utilizzo_ricreazionale }}</p>
-                            <p><span class="bold">Uso di sostanze stupefacenti:</span> {{ paziente.uso_stupefacenti }}</p>
-                            {% if paziente.note %}
-                                <p><span class="bold">Note:</span> {{ paziente.note }}</p>
-                            {% endif %}
+                            <div class="terapia-cannabis--wrapper">
+                                <h3>Terapia con cannabis</h3>
+                                <p><span class="bold">Posologia (mg/die):</span> {{ paziente.posologia }}</p>
+                                <p><span class="bold">Numero di somministrazioni/die:</span> {{ paziente.num_somministrazioni }}</p>
+                                <p><span class="bold">Data di inizio trattamento:</span> {{ paziente.data_trattamento }}</p>
+                                <p><span class="bold">Modalità di somministrazione:</span> {{ paziente.get_modalita_somministrazione_display }}</p>
+                                <p><span class="bold">Utilizzo cannabis prescritta per terapia orale anche con altre modalità di somministrazione (es. per smoking):</span> {{ paziente.utilizzo_cannabis }}</p>
+                                <p><span class="bold">Tempo trascorso tra l'assunzione della cannabis e il prelievo ematico (minuti):</span> {{ paziente.tempo_prelievo }}</p>
+                                <p><span class="bold">Modalità ultima assunzione:</span> {{ paziente.modalita_ultima_assunzione }}</p>
+                                <p><span class="bold">Concentrazione THC - Sangue intero:</span> {{ paziente.conc_thc_sangue }}</p>
+                                <p><span class="bold">Concentrazione THC - DBS:</span> {{ paziente.conc_thc_dbs }}</p>
+                                <p><span class="bold">Concentrazione 11-OH-THC - Sangue intero:</span> {{ paziente.conc_11_oh_thc_sangue }}</p>
+                                <p><span class="bold">Concentrazione 11-OH-THC - DBS:</span> {{ paziente.conc_11_oh_thc_dbs }}</p>
+                                <p><span class="bold">Concentrazione CBD - Sangue intero:</span> {{ paziente.conc_cbd_sangue }}</p>
+                                <p><span class="bold">Concentrazione CBD - DBS:</span> {{ paziente.conc_cbd_dbs }}</p>
+                                <p><span class="bold">Attuale utilizzo di cannabis ricreazionale:</span> {{ paziente.cannabis_ricreazionale }}</p>
+                                <p><span class="bold">Pregresso utilizzo di cannabis ricreazonale:</span> {{ paziente.pregresso_utilizzo_ricreazionale }}</p>
+                                <p><span class="bold">Uso di sostanze stupefacenti:</span> {{ paziente.uso_stupefacenti }}</p>
+                                {% if paziente.note %}
+                                    <p><span class="bold">Note:</span> {{ paziente.note }}</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     {% if paziente.bpi_paziente.all %}
                     <div class="col-6">
                         <div class="bpi">
-                        {% for bpi_form in paziente.bpi_paziente.all %}
-                            <h3>BPI</h3>
-                            <p><span class="bold">Dolore peggiore:</span> {{ bpi_form.nrs_1_t0 }} - {{ bpi_form.nrs_1_t1 }}</p>
-                            <p><span class="bold">Dolore più lieve:</span> {{ bpi_form.nrs_2_t0 }} - {{ bpi_form.nrs_2_t1 }}</p>
-                            <p><span class="bold">Dolore medio:</span> {{ bpi_form.nrs_3_t0 }} - {{ bpi_form.nrs_3_t1 }}</p>
-                            <p><span class="bold">Dolore al momento:</span> {{ bpi_form.nrs_4_t0 }} - {{ bpi_form.nrs_4_t1 }}</p>
-                            <p><span class="bold">Sollievo indotto:</span> {{ bpi_form.sollievo_indotto_t0 }} - {{ bpi_form.sollievo_indotto_t1 }}</p>
-                            <p><span class="bold">Attività in generale:</span> {{ bpi_form.attivita_generale_t0 }} - {{ bpi_form.attivita_generale_t1 }}</p>
-                            <p><span class="bold">Umore:</span> {{ bpi_form.umore_t0 }} - {{ bpi_form.umore_t1 }}</p>
-                            <p><span class="bold">Capacità di camminare:</span> {{ bpi_form.camminare_t0 }} - {{ bpi_form.camminare_t1 }}</p>
-                            <p><span class="bold">Lavoro:</span> {{ bpi_form.lavoro_t0 }} - {{ bpi_form.lavoro_t1 }}</p>
-                            <p><span class="bold">Relazioni:</span> {{ bpi_form.relazioni_t0 }} - {{ bpi_form.relazioni_t1 }}</p>
-                            <p><span class="bold">Sonno:</span> {{ bpi_form.sonno_t0 }} - {{ bpi_form.sonno_t1 }}</p>
-                            <p><span class="bold">Gusto di vivere:</span> {{ bpi_form.gusto_vivere_t0 }} - {{ bpi_form.gusto_vivere_t1 }}</p>
-                            {% if bpi_form.altro %}
-                                <p><span class="bold">Altro:</span> {{ bpi_form.altro }}</p>
-                            {% endif %}
-                        {% endfor %}
+                            <div class="bpi--wrapper">
+                                {% for bpi_form in paziente.bpi_paziente.all %}
+                                    <h3>BPI</h3>
+                                    <table>
+                                        <tr>
+                                            <th class="bpi-tipo">Tipo</th>
+                                            <th class="bpi-t0">Valore T0</th>
+                                            <th class="bpi-t1">Valore T1</th>
+                                            <th class="bpi-trend">Trend</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Dolore peggiore:</td>
+                                            <td class="bpi-t0">{{ bpi_form.nrs_1_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.nrs_1_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.nrs_1_t0 > bpi_form.nrs_1_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.nrs_1_t0 < bpi_form.nrs_1_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Dolore più lieve:</td>
+                                            <td class="bpi-t0">{{ bpi_form.nrs_2_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.nrs_2_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.nrs_2_t0 > bpi_form.nrs_2_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.nrs_2_t0 < bpi_form.nrs_2_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Dolore medio:</td>
+                                            <td class="bpi-t0">{{ bpi_form.nrs_3_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.nrs_3_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.nrs_3_t0 > bpi_form.nrs_3_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.nrs_3_t0 < bpi_form.nrs_3_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Dolore al momento:</td>
+                                            <td class="bpi-t0">{{ bpi_form.nrs_4_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.nrs_4_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.nrs_4_t0 > bpi_form.nrs_4_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.nrs_4_t0 < bpi_form.nrs_4_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Sollievo indotto:</td>
+                                            <td class="bpi-t0">{{ bpi_form.sollievo_indotto_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.sollievo_indotto_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.sollievo_indotto_t0 > bpi_form.sollievo_indotto_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.sollievo_indotto_t0 < bpi_form.sollievo_indotto_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Attività in generale:</td>
+                                            <td class="bpi-t0">{{ bpi_form.attivita_generale_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.attivita_generale_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.attivita_generale_t0 > bpi_form.attivita_generale_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.attivita_generale_t0 < bpi_form.attivita_generale_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Umore:</td>
+                                            <td class="bpi-t0">{{ bpi_form.umore_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.umore_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.umore_t0 > bpi_form.umore_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.umore_t0 < bpi_form.umore_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Capacità di camminare:</td>
+                                            <td class="bpi-t0">{{ bpi_form.camminare_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.camminare_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.camminare_t0 > bpi_form.camminare_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.camminare_t0 < bpi_form.camminare_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Lavoro:</td>
+                                            <td class="bpi-t0">{{ bpi_form.lavoro_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.lavoro_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.lavoro_t0 > bpi_form.lavoro_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.lavoro_t0 < bpi_form.lavoro_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Relazioni:</td>
+                                            <td class="bpi-t0">{{ bpi_form.relazioni_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.relazioni_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.relazioni_t0 > bpi_form.relazioni_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.relazioni_t0 < bpi_form.relazioni_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Sonno:</td>
+                                            <td class="bpi-t0">{{ bpi_form.sonno_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.sonno_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.sonno_t0 > bpi_form.sonno_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.sonno_t0 < bpi_form.sonno_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bpi-tipo">Gusto di vivere:</td>
+                                            <td class="bpi-t0">{{ bpi_form.gusto_vivere_t0 }}</td>
+                                            <td class="bpi-t1">{{ bpi_form.gusto_vivere_t1 }}</td>
+                                            <td class="bpi-trend">
+                                                {% if bpi_form.gusto_vivere_t0 > bpi_form.gusto_vivere_t1 %}
+                                                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                                                {% elif bpi_form.gusto_vivere_t0 < bpi_form.gusto_vivere_t1 %}
+                                                    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+                                                {% else %}
+                                                    <i class="fa fa-hand-stop-0" aria-hidden="true"></i>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% if bpi_form.altro %}
+                                            <tr>
+                                                <td>Altro:</td>
+                                                <td>{{ bpi_form.altro }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    </table>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                     {% endif %}
                     {% if paziente.eventi_paziente.all %}
                     <div class="col-6">
                         <div class="eventi-avversi">
-                            {% for evento_avverso in paziente.eventi_paziente.all %}
-                                <h3>Eventi avversi</h3>
-                                {% for name, value in evento_avverso.attrs %}
-                                    {% if value == True and not name == 'ID' %}
-                                        <p><span class="bold">{{ name }}:</span> <i class="fa fa-check-square-o" aria-hidden="true"></i></p> 
-                                    {% endif %}
+                            <div class="eventi-avversi--wrapper">
+                                {% for evento_avverso in paziente.eventi_paziente.all %}
+                                    <h3>Eventi avversi</h3>
+                                    {% for name, value in evento_avverso.attrs %}
+                                        {% if value == True and not name == 'ID' %}
+                                            <p><span class="bold">{{ name }}:</span> <i class="fa fa-check-square-o" aria-hidden="true"></i></p> 
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
-                            {% endfor %}
+                            </div>
                         </div>
                     </div>
                     {% endif %}
                     {% if paziente.decotto_paziente.all %}
                     <div class="col-6">
                         <div class="modalita-decotto">
-                            {% for evento_avverso in paziente.eventi_paziente.all %}
-                                <h3>Modalità decotto</h3>
-                            {% endfor %}
+                            <div class="modalita-decotto--wrapper">
+                                {% for decotto in paziente.decotto_paziente.all %}
+                                    <h3>Modalità decotto</h3>
+                                    <p><span class="bold">Quantità acqua (ml):</span> {{ decotto.quantita_acqua }}</p>
+                                    <p><span class="bold">Sostanza grassa utilizzata (butto,latte, panna) e quantità (ml):</span> {{ decotto.sostanza_grassa }}</p>
+                                    <p><span class="bold">Tempo intercorso tra la preparazione del decotto (min):</span> {{ decotto.tempo_impiegato }}</p>
+                                    <p><span class="bold">Tempo intercorso tra la preparazione e l'assunzione (min):</span> {{ decotto.tempo_assunzione }}</p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                     {%endif %}
