@@ -6,8 +6,8 @@
         <h1 class="title text-center">Lista pazienti - Studio cannabis terapeutica</h1>
     </div>
 </div>
-<div class="col-12">
-    <div class="pazienti-list__container">
+<div class="pazienti-list__container">
+    <div class="col-12">
         <ul class="nav nav-tabs pazienti-list">
             {% for paziente in object_list %}
                 <li class="nav-item">
@@ -15,11 +15,13 @@
                 </li>
             {% endfor %}
         </ul>
-        <div class="tab-content">
-            {% for paziente in object_list %}
-                <div class="tab-pane show{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
-                    <div class="row">
-                        <div class="dati-paziente col-6">
+    </div>
+    <div class="tab-content">
+        {% for paziente in object_list %}
+            <div class="tab-pane show{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="dati-paziente">
                             <h3>Dati paziente</h3>
                             <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
                             <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
@@ -35,7 +37,9 @@
                             <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
                             <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
                         </div>
-                        <div class="terapia-cannabis col-6">
+                    </div>
+                    <div class="col-6">
+                        <div class="terapia-cannabis">
                             <h3>Terapia con cannabis</h3>
                             <p><span class="bold">Posologia (mg/die):</span> {{ paziente.posologia }}</p>
                             <p><span class="bold">Numero di somministrazioni/die:</span> {{ paziente.num_somministrazioni }}</p>
@@ -57,40 +61,57 @@
                                 <p><span class="bold">Note:</span> {{ paziente.note }}</p>
                             {% endif %}
                         </div>
-                    
-                        {% if paziente.bpi_paziente.all %}
-                        <div class="bpi col-6">
-                            {% for bpi_form in paziente.bpi_paziente.all %}
-                                <h3>BPI</h3>
-                                <p><span class="bold">Dolore peggiore:</span> {{ bpi_form.nrs_1_t0 }} - {{ bpi_form.nrs_1_t1 }}</p>
-                                <p><span class="bold">Dolore più lieve:</span> {{ bpi_form.nrs_2_t0 }} - {{ bpi_form.nrs_2_t1 }}</p>
-                                <p><span class="bold">Dolore medio:</span> {{ bpi_form.nrs_3_t0 }} - {{ bpi_form.nrs_3_t1 }}</p>
-                                <p><span class="bold">Dolore al momento:</span> {{ bpi_form.nrs_4_t0 }} - {{ bpi_form.nrs_4_t1 }}</p>
-                                <p><span class="bold">Sollievo indotto:</span> {{ bpi_form.sollievo_indotto_t0 }} - {{ bpi_form.sollievo_indotto_t1 }}</p>
-                                <p><span class="bold">Attività in generale:</span> {{ bpi_form.attivita_generale_t0 }} - {{ bpi_form.attivita_generale_t1 }}</p>
-                                <p><span class="bold">Umore:</span> {{ bpi_form.umore_t0 }} - {{ bpi_form.umore_t1 }}</p>
-                                <p><span class="bold">Capacità di camminare:</span> {{ bpi_form.camminare_t0 }} - {{ bpi_form.camminare_t1 }}</p>
-                                <p><span class="bold">Lavoro:</span> {{ bpi_form.lavoro_t0 }} - {{ bpi_form.lavoro_t1 }}</p>
-                                <p><span class="bold">Relazioni:</span> {{ bpi_form.relazioni_t0 }} - {{ bpi_form.relazioni_t1 }}</p>
-                                <p><span class="bold">Sonno:</span> {{ bpi_form.sonno_t0 }} - {{ bpi_form.sonno_t1 }}</p>
-                                <p><span class="bold">Gusto di vivere:</span> {{ bpi_form.gusto_vivere_t0 }} - {{ bpi_form.gusto_vivere_t1 }}</p>
-                                {% if bpi_form.altro %}
-                                    <p><span class="bold">Altro:</span> {{ bpi_form.altro }}</p>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        <div class="eventi-avversi col-6">
-                            <h3>Eventi avversi</h3>
-                        </div>
-                        <div class="modalita-decotto col-6">
-                            <h3>Modalità decotto</h3>
-                            
+                    </div>
+                    {% if paziente.bpi_paziente.all %}
+                    <div class="col-6">
+                        <div class="bpi">
+                        {% for bpi_form in paziente.bpi_paziente.all %}
+                            <h3>BPI</h3>
+                            <p><span class="bold">Dolore peggiore:</span> {{ bpi_form.nrs_1_t0 }} - {{ bpi_form.nrs_1_t1 }}</p>
+                            <p><span class="bold">Dolore più lieve:</span> {{ bpi_form.nrs_2_t0 }} - {{ bpi_form.nrs_2_t1 }}</p>
+                            <p><span class="bold">Dolore medio:</span> {{ bpi_form.nrs_3_t0 }} - {{ bpi_form.nrs_3_t1 }}</p>
+                            <p><span class="bold">Dolore al momento:</span> {{ bpi_form.nrs_4_t0 }} - {{ bpi_form.nrs_4_t1 }}</p>
+                            <p><span class="bold">Sollievo indotto:</span> {{ bpi_form.sollievo_indotto_t0 }} - {{ bpi_form.sollievo_indotto_t1 }}</p>
+                            <p><span class="bold">Attività in generale:</span> {{ bpi_form.attivita_generale_t0 }} - {{ bpi_form.attivita_generale_t1 }}</p>
+                            <p><span class="bold">Umore:</span> {{ bpi_form.umore_t0 }} - {{ bpi_form.umore_t1 }}</p>
+                            <p><span class="bold">Capacità di camminare:</span> {{ bpi_form.camminare_t0 }} - {{ bpi_form.camminare_t1 }}</p>
+                            <p><span class="bold">Lavoro:</span> {{ bpi_form.lavoro_t0 }} - {{ bpi_form.lavoro_t1 }}</p>
+                            <p><span class="bold">Relazioni:</span> {{ bpi_form.relazioni_t0 }} - {{ bpi_form.relazioni_t1 }}</p>
+                            <p><span class="bold">Sonno:</span> {{ bpi_form.sonno_t0 }} - {{ bpi_form.sonno_t1 }}</p>
+                            <p><span class="bold">Gusto di vivere:</span> {{ bpi_form.gusto_vivere_t0 }} - {{ bpi_form.gusto_vivere_t1 }}</p>
+                            {% if bpi_form.altro %}
+                                <p><span class="bold">Altro:</span> {{ bpi_form.altro }}</p>
+                            {% endif %}
+                        {% endfor %}
                         </div>
                     </div>
+                    {% endif %}
+                    {% if paziente.eventi_paziente.all %}
+                    <div class="col-6">
+                        <div class="eventi-avversi">
+                            {% for evento_avverso in paziente.eventi_paziente.all %}
+                                <h3>Eventi avversi</h3>
+                                {% for name, value in evento_avverso.attrs %}
+                                    {% if value == True and not name == 'ID' %}
+                                        <p><span class="bold">{{ name }}:</span> <i class="fa fa-check-square-o" aria-hidden="true"></i></p> 
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if paziente.decotto_paziente.all %}
+                    <div class="col-6">
+                        <div class="modalita-decotto">
+                            {% for evento_avverso in paziente.eventi_paziente.all %}
+                                <h3>Modalità decotto</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {%endif %}
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

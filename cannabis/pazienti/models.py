@@ -346,6 +346,10 @@ class EventiAvversi(models.Model):
 	def __str__(self):
 		return 'Eventi avversi'
 
+	def attrs(self):
+		for field in self._meta.fields:
+			yield field.verbose_name, getattr(self, field.name)
+
 
 class ModalitaDecotto(models.Model):
 	paziente = models.ForeignKey(
