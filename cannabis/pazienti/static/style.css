@@ -27,7 +27,6 @@ ul {
 }
 
 .dati-paziente {
-    margin: 20px;
     padding: 40px;
     background: #B3E2CE;
 }
@@ -40,15 +39,13 @@ ul {
 }
 
 .terapia-cannabis {
-    margin: 20px;
     padding: 40px;
     background: #B3E2CE;
 }
 
 .bpi {
-    margin: 20px;
     padding: 40px;
-    background: #B3E2CE;
+    background: #efefef;
 }
 
 .tab-content {

@@ -1,91 +1,96 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-xs-12">
-    <h1 class="title text-center">Lista pazienti - Studio cannabis terapeutica</h1>
+<div class="row">
+    <div class="col-12">
+        <h1 class="title text-center">Lista pazienti - Studio cannabis terapeutica</h1>
+    </div>
 </div>
-<div class="col-xs-12 pazienti-list__container">
-    <ul class="nav nav-tabs pazienti-list">
-        {% for paziente in object_list %}
-            <li class="{% if forloop.first %}active{% endif %}">
-                <a href="#{{ paziente.num_cartella }}" data-toggle="tab">{{ paziente }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <div class="tab-content">
-        {% for paziente in object_list %}
-            <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
-                <h2>{{ paziente }}</h2>
-                <div class="dati-paziente">
-                    <h3>Dati paziente</h3>
-                    <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
-                    <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
-                    <p><span class="bold">Sesso:</span> {{ paziente.get_sesso_display }}</p>
-                    <p><span class="bold">Data di nascita:</span> {{ paziente.data_nascita }}</p>
-                    <p><span class="bold">Età:</span> {{ paziente.eta }}</p>
-                    <p><span class="bold">Luogo di nascita:</span> {{ paziente.luogo_nascita }}</p>
-                    <p><span class="bold">Lavoro:</span> {{ paziente.lavoro }}</p>
-                    <p><span class="bold">Titolo di studio:</span> {{ paziente.get_titolo_studio_display }}</p>
-                    <p><span class="bold">Patologia:</span> {{ paziente.get_patologia_display }}</p>
-                    <p><span class="bold">Descrizione patologia:</span> {{ paziente.descrizione_patologica }}</p>
-                    <p><span class="bold">Età anagrafica all'insorgenza della patologia dolorosa:</span> {{ paziente.eta_insorgenza }}</p>
-                    <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
-                    <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
-                </div>
-                <div class="terapia-cannabis">
-                    <h3>Terapia con cannabis</h3>
-                    <p><span class="bold">Posologia (mg/die):</span> {{ paziente.posologia }}</p>
-                    <p><span class="bold">Numero di somministrazioni/die:</span> {{ paziente.num_somministrazioni }}</p>
-                    <p><span class="bold">Data di inizio trattamento:</span> {{ paziente.data_trattamento }}</p>
-                    <p><span class="bold">Modalità di somministrazione:</span> {{ paziente.get_modalita_somministrazione_display }}</p>
-                    <p><span class="bold">Utilizzo cannabis prescritta per terapia orale anche con altre modalità di somministrazione (es. per smoking):</span> {{ paziente.utilizzo_cannabis }}</p>
-                    <p><span class="bold">Tempo trascorso tra l'assunzione della cannabis e il prelievo ematico (minuti):</span> {{ paziente.tempo_prelievo }}</p>
-                    <p><span class="bold">Modalità ultima assunzione:</span> {{ paziente.modalita_ultima_assunzione }}</p>
-                    <p><span class="bold">Concentrazione THC - Sangue intero:</span> {{ paziente.conc_thc_sangue }}</p>
-                    <p><span class="bold">Concentrazione THC - DBS:</span> {{ paziente.conc_thc_dbs }}</p>
-                    <p><span class="bold">Concentrazione 11-OH-THC - Sangue intero:</span> {{ paziente.conc_11_oh_thc_sangue }}</p>
-                    <p><span class="bold">Concentrazione 11-OH-THC - DBS:</span> {{ paziente.conc_11_oh_thc_dbs }}</p>
-                    <p><span class="bold">Concentrazione CBD - Sangue intero:</span> {{ paziente.conc_cbd_sangue }}</p>
-                    <p><span class="bold">Concentrazione CBD - DBS:</span> {{ paziente.conc_cbd_dbs }}</p>
-                    <p><span class="bold">Attuale utilizzo di cannabis ricreazionale:</span> {{ paziente.cannabis_ricreazionale }}</p>
-                    <p><span class="bold">Pregresso utilizzo di cannabis ricreazonale:</span> {{ paziente.pregresso_utilizzo_ricreazionale }}</p>
-                    <p><span class="bold">Uso di sostanze stupefacenti:</span> {{ paziente.uso_stupefacenti }}</p>
-                    {% if paziente.note %}
-                        <p><span class="bold">Note:</span> {{ paziente.note }}</p>
-                    {% endif %}
-                </div>
-                {% if paziente.bpi_paziente.all %}
-                <div class="bpi">
-                    {% for bpi_form in paziente.bpi_paziente.all %}
-                        <h3>BPI</h3>
-                        <p><span class="bold">Dolore peggiore:</span> {{ bpi_form.nrs_1_t0 }} - {{ bpi_form.nrs_1_t1 }}</p>
-                        <p><span class="bold">Dolore più lieve:</span> {{ bpi_form.nrs_2_t0 }} - {{ bpi_form.nrs_2_t1 }}</p>
-                        <p><span class="bold">Dolore medio:</span> {{ bpi_form.nrs_3_t0 }} - {{ bpi_form.nrs_3_t1 }}</p>
-                        <p><span class="bold">Dolore al momento:</span> {{ bpi_form.nrs_4_t0 }} - {{ bpi_form.nrs_4_t1 }}</p>
-                        <p><span class="bold">Sollievo indotto:</span> {{ bpi_form.sollievo_indotto_t0 }} - {{ bpi_form.sollievo_indotto_t1 }}</p>
-                        <p><span class="bold">Attività in generale:</span> {{ bpi_form.attivita_generale_t0 }} - {{ bpi_form.attivita_generale_t1 }}</p>
-                        <p><span class="bold">Umore:</span> {{ bpi_form.umore_t0 }} - {{ bpi_form.umore_t1 }}</p>
-                        <p><span class="bold">Capacità di camminare:</span> {{ bpi_form.camminare_t0 }} - {{ bpi_form.camminare_t1 }}</p>
-                        <p><span class="bold">Lavoro:</span> {{ bpi_form.lavoro_t0 }} - {{ bpi_form.lavoro_t1 }}</p>
-                        <p><span class="bold">Relazioni:</span> {{ bpi_form.relazioni_t0 }} - {{ bpi_form.relazioni_t1 }}</p>
-                        <p><span class="bold">Sonno:</span> {{ bpi_form.sonno_t0 }} - {{ bpi_form.sonno_t1 }}</p>
-                        <p><span class="bold">Gusto di vivere:</span> {{ bpi_form.gusto_vivere_t0 }} - {{ bpi_form.gusto_vivere_t1 }}</p>
-                        {% if bpi_form.altro %}
-                            <p><span class="bold">Altro:</span> {{ bpi_form.altro }}</p>
+<div class="col-12">
+    <div class="pazienti-list__container">
+        <ul class="nav nav-tabs pazienti-list">
+            {% for paziente in object_list %}
+                <li class="nav-item">
+                    <a class="nav-link{% if forloop.first %} active{% endif %}" data-target="#{{ paziente.num_cartella }}" data-toggle="tab">{{ paziente }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content">
+            {% for paziente in object_list %}
+                <div class="tab-pane show{% if forloop.first %} active{% endif %}" id="{{ paziente.num_cartella }}">
+                    <div class="row">
+                        <div class="dati-paziente col-6">
+                            <h3>Dati paziente</h3>
+                            <p><span class="bold">N° paziente:</span> {{ paziente.num_paziente }}</p>
+                            <p><span class="bold">N° cartella:</span> {{ paziente.num_cartella }}</p>
+                            <p><span class="bold">Sesso:</span> {{ paziente.get_sesso_display }}</p>
+                            <p><span class="bold">Data di nascita:</span> {{ paziente.data_nascita }}</p>
+                            <p><span class="bold">Età:</span> {{ paziente.eta }}</p>
+                            <p><span class="bold">Luogo di nascita:</span> {{ paziente.luogo_nascita }}</p>
+                            <p><span class="bold">Lavoro:</span> {{ paziente.lavoro }}</p>
+                            <p><span class="bold">Titolo di studio:</span> {{ paziente.get_titolo_studio_display }}</p>
+                            <p><span class="bold">Patologia:</span> {{ paziente.get_patologia_display }}</p>
+                            <p><span class="bold">Descrizione patologia:</span> {{ paziente.descrizione_patologica }}</p>
+                            <p><span class="bold">Età anagrafica all'insorgenza della patologia dolorosa:</span> {{ paziente.eta_insorgenza }}</p>
+                            <p><span class="bold">Altre patologie:</span> {{ paziente.altre_patologie }}</p>
+                            <p><span class="bold">Trattamenti farmacologici in corso:</span> {{ paziente.trattamenti }}</p>
+                        </div>
+                        <div class="terapia-cannabis col-6">
+                            <h3>Terapia con cannabis</h3>
+                            <p><span class="bold">Posologia (mg/die):</span> {{ paziente.posologia }}</p>
+                            <p><span class="bold">Numero di somministrazioni/die:</span> {{ paziente.num_somministrazioni }}</p>
+                            <p><span class="bold">Data di inizio trattamento:</span> {{ paziente.data_trattamento }}</p>
+                            <p><span class="bold">Modalità di somministrazione:</span> {{ paziente.get_modalita_somministrazione_display }}</p>
+                            <p><span class="bold">Utilizzo cannabis prescritta per terapia orale anche con altre modalità di somministrazione (es. per smoking):</span> {{ paziente.utilizzo_cannabis }}</p>
+                            <p><span class="bold">Tempo trascorso tra l'assunzione della cannabis e il prelievo ematico (minuti):</span> {{ paziente.tempo_prelievo }}</p>
+                            <p><span class="bold">Modalità ultima assunzione:</span> {{ paziente.modalita_ultima_assunzione }}</p>
+                            <p><span class="bold">Concentrazione THC - Sangue intero:</span> {{ paziente.conc_thc_sangue }}</p>
+                            <p><span class="bold">Concentrazione THC - DBS:</span> {{ paziente.conc_thc_dbs }}</p>
+                            <p><span class="bold">Concentrazione 11-OH-THC - Sangue intero:</span> {{ paziente.conc_11_oh_thc_sangue }}</p>
+                            <p><span class="bold">Concentrazione 11-OH-THC - DBS:</span> {{ paziente.conc_11_oh_thc_dbs }}</p>
+                            <p><span class="bold">Concentrazione CBD - Sangue intero:</span> {{ paziente.conc_cbd_sangue }}</p>
+                            <p><span class="bold">Concentrazione CBD - DBS:</span> {{ paziente.conc_cbd_dbs }}</p>
+                            <p><span class="bold">Attuale utilizzo di cannabis ricreazionale:</span> {{ paziente.cannabis_ricreazionale }}</p>
+                            <p><span class="bold">Pregresso utilizzo di cannabis ricreazonale:</span> {{ paziente.pregresso_utilizzo_ricreazionale }}</p>
+                            <p><span class="bold">Uso di sostanze stupefacenti:</span> {{ paziente.uso_stupefacenti }}</p>
+                            {% if paziente.note %}
+                                <p><span class="bold">Note:</span> {{ paziente.note }}</p>
+                            {% endif %}
+                        </div>
+                    
+                        {% if paziente.bpi_paziente.all %}
+                        <div class="bpi col-6">
+                            {% for bpi_form in paziente.bpi_paziente.all %}
+                                <h3>BPI</h3>
+                                <p><span class="bold">Dolore peggiore:</span> {{ bpi_form.nrs_1_t0 }} - {{ bpi_form.nrs_1_t1 }}</p>
+                                <p><span class="bold">Dolore più lieve:</span> {{ bpi_form.nrs_2_t0 }} - {{ bpi_form.nrs_2_t1 }}</p>
+                                <p><span class="bold">Dolore medio:</span> {{ bpi_form.nrs_3_t0 }} - {{ bpi_form.nrs_3_t1 }}</p>
+                                <p><span class="bold">Dolore al momento:</span> {{ bpi_form.nrs_4_t0 }} - {{ bpi_form.nrs_4_t1 }}</p>
+                                <p><span class="bold">Sollievo indotto:</span> {{ bpi_form.sollievo_indotto_t0 }} - {{ bpi_form.sollievo_indotto_t1 }}</p>
+                                <p><span class="bold">Attività in generale:</span> {{ bpi_form.attivita_generale_t0 }} - {{ bpi_form.attivita_generale_t1 }}</p>
+                                <p><span class="bold">Umore:</span> {{ bpi_form.umore_t0 }} - {{ bpi_form.umore_t1 }}</p>
+                                <p><span class="bold">Capacità di camminare:</span> {{ bpi_form.camminare_t0 }} - {{ bpi_form.camminare_t1 }}</p>
+                                <p><span class="bold">Lavoro:</span> {{ bpi_form.lavoro_t0 }} - {{ bpi_form.lavoro_t1 }}</p>
+                                <p><span class="bold">Relazioni:</span> {{ bpi_form.relazioni_t0 }} - {{ bpi_form.relazioni_t1 }}</p>
+                                <p><span class="bold">Sonno:</span> {{ bpi_form.sonno_t0 }} - {{ bpi_form.sonno_t1 }}</p>
+                                <p><span class="bold">Gusto di vivere:</span> {{ bpi_form.gusto_vivere_t0 }} - {{ bpi_form.gusto_vivere_t1 }}</p>
+                                {% if bpi_form.altro %}
+                                    <p><span class="bold">Altro:</span> {{ bpi_form.altro }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                         {% endif %}
-                    {% endfor %}
+                        <div class="eventi-avversi col-6">
+                            <h3>Eventi avversi</h3>
+                        </div>
+                        <div class="modalita-decotto col-6">
+                            <h3>Modalità decotto</h3>
+                            
+                        </div>
+                    </div>
                 </div>
-                {% endif %}
-                <div class="eventi-avversi">
-                    <h3>Eventi avversi</h3>
-                    
-                </div>
-                <div class="modalita-decotto">
-                    <h3>Modalità decotto</h3>
-                    
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock content %}
